@@ -1,49 +1,7 @@
-<!--index.wxml-->
-<!--<view class="container">
 
-    &lt;!&ndash; 用户 openid &ndash;&gt;
-    <view class="userinfo">
-        <button
-                open-type="getUserInfo"
-                bindgetuserinfo="onGetUserInfo"
-                class="userinfo-avatar"
-                style="background-image: url({{avatarUrl}})"
-        ></button>
-        <view>
-            <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
-        </view>
-    </view>
-
-
-    &lt;!&ndash; 上传图片 &ndash;&gt;
-    <view class="uploader">
-        <view class="uploader-text" bindtap="doUpload">
-            <text>上传图片</text>
-        </view>
-        <view class="uploader-container" wx:if="{{imgUrl}}">
-            <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>
-        </view>
-    </view>
-
-
-    &lt;!&ndash; 操作数据库 &ndash;&gt;
-    <view class="uploader">
-        <navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
-            <text>前端操作数据库</text>
-        </navigator>
-    </view>
-
-    &lt;!&ndash; 新建云函数 &ndash;&gt;
-    <view class="uploader">
-        <navigator url="../addFunction/addFunction" open-type="navigate" class="uploader-text">
-            <text>快速新建云函数</text>
-        </navigator>
-    </view>
-
-</view>-->
 <movable-area class="wrapper">
     <view class="wrapper-image">
-        <image class="wrapper-image-item" src="../../images/index-bg.jpg"></image>
+        <image class="wrapper-image-item" src="../../images/bg1.jpg"></image>
     </view>
     <view class="wrapper-line">—— DREAM MAKER ——</view>
     <swiper class="wrapper-swipe" bindchange="swipeChange" interval="3000" circular indicator-dots indicator-color="#e7e7e7" indicator-active-color="#e93b3d" previous-margin="30px" next-margin="30px">
@@ -51,12 +9,12 @@
             <swiper-item class="wrapper-swipe-item">
                 <view class="wrapper-swipe-item-wrap {{swipeCurrent == index?'wrapper-swipe-item-wrap-a':''}}">
                     <!--<image src="{{item.imgUrl}}" class="wrapper-swipe-item-wrap-image"></image>-->
-                    <view class="wrapper-swipe-item-wrap-image">{{item.name}}</view>
+                    <view class="wrapper-swipe-item-wrap-image" style='background-image:url({{item.imgUrl}})'><view class='item-title'>{{item.name}}</view></view>
                 </view>
             </swiper-item>
         </block>
     </swiper>
     <view class="wrapper-block"></view>
 
-    <movable-view class="wrapper-movable" inertia direction="all" x="{{movableX}}" y="{{movableY}}"></movable-view>
+    <!-- <movable-view class="wrapper-movable" inertia direction="all" x="{{movableX}}" y="{{movableY}}"></movable-view> -->
 </movable-area>

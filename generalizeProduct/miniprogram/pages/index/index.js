@@ -8,31 +8,30 @@ Page({
     logged: false,
     takeSession: false,
     requestResult: '',
-      movableX: null,
-      movableY: null,
-      swipeCurrent: 0,
-      swipeData: [
-          {
-              key: 1,
-              name: '小程序案例1',
-              imgUrl: '../../images/code-db-inc-dec.png'
-          },
-          {
-              key: 2,
-              name: '小程序案例2',
-              imgUrl: '../../images/index-bg.jpg'
-          },
-          {
-              key: 3,
-              name: '小程序案例3',
-              imgUrl: '../../images/code-db-onAdd.png'
-          },
-          {
-              key: 4,
-              name: '小程序案例4',
-              imgUrl: '../../images/create-collection.png'
-          }
-      ]
+    movableX: null,
+    movableY: null,
+    swipeCurrent: 0,
+    swipeData: [{
+        key: 1,
+        name: 'Designing',
+      imgUrl: 'https://www.actiu.com/uploads/images/actualidad/la-transformacion-de-la-educacion-a-traves-de-sus-espacios-1_crop_628_628.jpg'
+      },
+      {
+        key: 2,
+        name: 'Designing',
+        imgUrl: 'https://www.actiu.com/uploads/images/actualidad/las-claves-para-el-diseno-de-los-nuevos-entornos-de-trabajo-1_crop_628_628.jpg'
+      },
+      {
+        key: 3,
+        name: 'Designing',
+        imgUrl: 'https://www.actiu.com/uploads/images/actualidad/disenando-para-la-generacion-milenial-1_crop_628_628.jpg'
+      },
+      {
+        key: 4,
+        name: 'Designing',
+        imgUrl: 'https://www.actiu.com/uploads/images/actualidad/febrero-el-mes-del-diseno-en-madrid-1_crop_628_628.jpg'
+      }
+    ]
   },
 
   onLoad: function() {
@@ -59,14 +58,14 @@ Page({
         }*/
       }
     });
-      wx.getSystemInfo({
-          success: res => {
-              this.setData({
-                  movableX: res.screenWidth/2 - 30,
-                  movableY: res.screenHeight - 160
-              });
-          }
-      })
+    wx.getSystemInfo({
+      success: res => {
+        this.setData({
+          movableX: res.screenWidth / 2 - 30,
+          movableY: res.screenHeight - 160
+        });
+      }
+    })
   },
 
   onGetUserInfo: function(e) {
@@ -101,13 +100,13 @@ Page({
   },
 
   // 上传图片
-  doUpload: function () {
+  doUpload: function() {
     // 选择图片
     wx.chooseImage({
       count: 1,
       sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
-      success: function (res) {
+      success: function(res) {
 
         wx.showLoading({
           title: '上传中',
@@ -150,9 +149,9 @@ Page({
     })
   },
 
-    swipeChange(e){
-      this.setData({
-          swipeCurrent: e.detail.current
-      });
-    },
+  swipeChange(e) {
+    this.setData({
+      swipeCurrent: e.detail.current
+    });
+  },
 });
