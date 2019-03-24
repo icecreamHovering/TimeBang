@@ -1,5 +1,5 @@
 
-<movable-area class="wrapper">
+<view class="wrapper">
     <view class="wrapper-image">
         <image class="wrapper-image-item" src="../../images/bg1.jpg"></image>
     </view>
@@ -17,4 +17,4 @@
     <view class="wrapper-block"></view>
 
     <!-- <movable-view class="wrapper-movable" inertia direction="all" x="{{movableX}}" y="{{movableY}}"></movable-view> -->
-</movable-area>
+</view>
