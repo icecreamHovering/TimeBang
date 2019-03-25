@@ -6,10 +6,37 @@ Page({
    */
   data: {
     list: [{ icon: "../../images/loca.svg", title:"深圳南山区"},
-      { icon: "../../images/tel.svg", title: "0771-99998888" },
-      { icon: "../../images/email.svg", title: "taibang@gmail.com" },
+      { icon: "../../images/tel.svg", title: "15670399643" },
+      { icon: "../../images/email.svg", title: "719579723@qq.com" },
       { icon: "../../images/company.svg", title: "太邦科技有限公司" }]
   },
+    //图片预览
+    previewImage(url){
+      if(url){
+          let urls = [];
+          urls.push(url);
+          wx.previewImage({
+              current: url, // 当前显示图片的http链接
+              urls: urls // 需要预览的图片http链接列表
+          })
+      }
+    },
+
+    //复制文字
+    copyText(data){
+        if(data){
+            wx.setClipboardData({
+                data: data,
+                success(res) {
+                    wx.getClipboardData({
+                        success(res) {
+                            console.log(res.data) // data
+                        }
+                    })
+                }
+            })
+        }
+    },
 
   /**
    * 生命周期函数--监听页面加载
@@ -66,4 +93,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+});

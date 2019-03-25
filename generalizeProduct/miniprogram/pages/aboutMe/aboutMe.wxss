@@ -45,6 +45,14 @@
   margin: auto 40rpx auto 0;
   width: 40rpx;
 }
+.list button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24rpx;
+    /*color: #fff;*/
+    background: #d25f3b;
+}
 .content {
   padding: 20rpx;
 }

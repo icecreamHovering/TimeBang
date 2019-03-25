@@ -1,6 +1,6 @@
 <view class='header'>
   <!-- <image src='../../images/logo.png' mode='widthFix'></image> -->
-  <view class='name'>太邦科技
+  <view class='name'>太邦科技，帮你所想
     <view class='subname'>To-Help Technology Co. Ltd</view>
   </view>
 </view>
@@ -9,7 +9,8 @@
   <block wx:for="{{list}}" wx:key="key">
     <view class='list'>
       <image src="{{item.icon}}" mode='widthFix'></image>
-      <view>{{item.title}}</view>
+      <text selectable>{{item.title}}</text>
+      <button wx:if="{{index == 1}}" bindtap="copyText({{item.title}})">复制</button>
     </view>
   </block>
 </view>
