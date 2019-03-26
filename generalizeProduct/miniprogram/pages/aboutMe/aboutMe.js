@@ -22,11 +22,22 @@ Page({
       }
     },
 
+    //打电话
+    makePhoneCall(e){
+        const dataset = e.currentTarget.dataset;
+        if(dataset&&dataset.number){
+            wx.makePhoneCall({
+                phoneNumber: dataset.number // 仅为示例，并非真实的电话号码
+            })
+        }
+    },
+
     //复制文字
-    copyText(data){
-        if(data){
+    copyText(e){
+      const dataset = e.currentTarget.dataset;
+        if(dataset&&dataset.text){
             wx.setClipboardData({
-                data: data,
+                data: dataset.text,
                 success(res) {
                     wx.getClipboardData({
                         success(res) {

@@ -34,6 +34,7 @@
 }
 
 .list {
+    position: relative;
   display: flex;
   height: 60rpx;
   line-height: 60rpx;
@@ -46,11 +47,18 @@
   width: 40rpx;
 }
 .list button {
+    position: absolute;
+    top: 0;
+    right: 10rpx;
+    bottom: 0;
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 50rpx;
+    min-width: 120rpx;
     font-size: 24rpx;
-    /*color: #fff;*/
+    color: #fff;
     background: #d25f3b;
 }
 .content {

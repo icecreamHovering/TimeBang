@@ -10,7 +10,8 @@
     <view class='list'>
       <image src="{{item.icon}}" mode='widthFix'></image>
       <text selectable>{{item.title}}</text>
-      <button wx:if="{{index == 1}}" bindtap="copyText({{item.title}})">复制</button>
+      <button wx:if="{{index == 2}}" bindtap="copyText" data-text="{{item.title}}">复制</button>
+      <button wx:if="{{index == 1}}" bindtap="makePhoneCall" data-number="{{item.title}}">call我</button>
     </view>
   </block>
 </view>
