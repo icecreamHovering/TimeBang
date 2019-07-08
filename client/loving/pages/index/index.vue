@@ -1,9 +1,14 @@
 <template>
 	<view class="index">
-		<image class="logo" src="/static/logo.png"></image>
-		<view>
-			<text class="title">{{title}}</text>
+		<view class="index-swiper">
+			<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
+				<swiper-item>
+					<view class="swiper-item uni-bg-red">A</view>
+				</swiper-item>
+			</swiper>
 		</view>
+		<view></view>
+		<view></view>
 	</view>
 </template>
 
@@ -11,7 +16,10 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				indicatorDots: true,
+				autoplay: true,
+				interval: 2000,
+				duration: 500
 			}
 		},
 		onLoad() {
