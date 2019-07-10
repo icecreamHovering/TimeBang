@@ -28,13 +28,13 @@
 				currentIndex: 0,
 				tabArr: [
 					{
-						text: 'text1',
+						text: '最新',
 						id: 0
 					},{
-						text: 'text2',
+						text: '最匹配',
 						id: 1
 					},{
-						text: 'text3',
+						text: '筛选',
 						id: 2
 					}
 				]
