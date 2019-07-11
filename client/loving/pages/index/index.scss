@@ -8,10 +8,16 @@ $Index: index;
 	text-align: center;
 	height: 100%;
 	background: #f2f2f2;
+	&-top{
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+	}
 	&-swiper{
 		height: 210upx;
 		background: rgba(0,0,0,.5);
-		.swiper{
+		.swiper{ 
 			height: 100%;
 		}
 	}
@@ -48,5 +54,13 @@ $Index: index;
 				}
 			}
 		}
+	}
+	&-scroll{
+		position: fixed;
+		top: 330upx;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		background: #fff;
 	}
 }
