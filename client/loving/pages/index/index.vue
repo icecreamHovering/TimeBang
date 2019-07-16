@@ -18,7 +18,7 @@
 		</view>
 		<view class="index-scroll">
 			<scroll-view :scroll-top="scrollTop" scroll-y="true" class="scroll-Y" @scrolltoupper="upper" @scrolltolower="lower"
-			 @scroll="scroll">
+			 @scroll="scroll" :style="{height: scrollHeight+'upx'}">
 				<view v-for="index in 100" :key="index">{{index}}</view>
 			</scroll-view>
 		</view>
@@ -47,11 +47,14 @@
 				scrollTop: 0,
 				old: {
 					scrollTop: 0
-				}
+				},
+				scrollHeight: 0
 			}
 		},
 		onLoad() {
-
+		},
+		onShow() {
+			this.getSysteminfoFun();
 		},
 		methods: {
 			changeTab(index) {
@@ -67,6 +70,15 @@
 				console.log(e)
 				this.old.scrollTop = e.detail.scrollTop
 			},
+			// 获取系统信息
+			getSysteminfoFun() {
+				const _this = this;
+				uni.getSystemInfo({
+					success: function(res) {
+						_this.scrollHeight = res.windowHeight - 330;
+					}
+				});
+			}
 		}
 	}
 </script>
