@@ -16,10 +16,10 @@
 				 @click="changeTab(index)">{{item.text}}</view>
 			</view>
 		</view>
-		<view class="index-scroll">
-			<scroll-view :scroll-top="scrollTop" scroll-y="true" class="scroll-Y" @scrolltoupper="upper" @scrolltolower="lower"
-			 @scroll="scroll" :style="{height: scrollHeight+'upx'}">
-				<view v-for="index in 100" :key="index">{{index}}</view>
+		<view class="index-scroll" id="srcoll-wrap">
+			<scroll-view :scroll-top="scrollTop" scroll-y="true" enable-back-to-top="true" class="scroll-y" @scrolltoupper="upper" @scrolltolower="lower"
+			 @scroll="scroll" :style="{height: scrollHeight}">
+				<view class="scroll-y-item" v-for="index in 100" :key="index">{{index}}</view>
 			</scroll-view>
 		</view>
 	</view>
@@ -51,33 +51,30 @@
 				scrollHeight: 0
 			}
 		},
-		onLoad() {
-		},
+		onLoad() {},
 		onShow() {
-			this.getSysteminfoFun();
+			this.getDomInfoFun();
 		},
 		methods: {
 			changeTab(index) {
 				this.currentIndex = index;
 			},
-			upper: function(e) {
+			upper(e) {
 				console.log(e)
 			},
-			lower: function(e) {
+			lower(e) {
 				console.log(e)
 			},
-			scroll: function(e) {
-				console.log(e)
+			scroll(e) {
 				this.old.scrollTop = e.detail.scrollTop
 			},
 			// 获取系统信息
-			getSysteminfoFun() {
-				const _this = this;
-				uni.getSystemInfo({
-					success: function(res) {
-						_this.scrollHeight = res.windowHeight - 330;
-					}
-				});
+			getDomInfoFun() {
+				let view = uni.createSelectorQuery().select("#srcoll-wrap");
+				view.boundingClientRect(data => {
+					console.log("高" + data.height);
+					this.scrollHeight = data.height + 'px';
+				}).exec();
 			}
 		}
 	}

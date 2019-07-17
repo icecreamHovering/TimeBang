@@ -62,5 +62,22 @@ $Index: index;
 		left: 0;
 		bottom: 0;
 		background: #fff;
+		.scroll-y{
+			&::-webkit-scrollbar{
+				width: 0;
+			}
+			-ms-overflow-style: none;
+			overflow: -moz-scrollbars-none;
+			&-item{
+				display: inline-block;
+				margin-top: 2%;
+				margin-right: 1%;
+				margin-left: 1%;
+				width: 47%;
+				height: 500upx;
+				border-radius: 10upx;
+				background: #666;
+			}
+		}
 	}
 }
