@@ -3,11 +3,10 @@
 		<view class="index-top">
 			<view class="index-swiper">
 				<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
-					<swiper-item>
-						<view class="swiper-item">A</view>
-					</swiper-item>
-					<swiper-item>
-						<view class="swiper-item">B</view>
+					<swiper-item v-for="index in 3" :key="index">
+						<view class="swiper-item">
+							<image src="../../static/common-top-ad.png"></image>
+						</view>
 					</swiper-item>
 				</swiper>
 			</view>
@@ -16,16 +15,17 @@
 				 @click="changeTab(index)">{{item.text}}</view>
 			</view>
 		</view>
-		<view class="index-scroll" id="srcoll-wrap">
-			<scroll-view :scroll-top="scrollTop" scroll-y="true" enable-back-to-top="true" class="scroll-y" @scrolltoupper="upper" @scrolltolower="lower"
+		<view class="index-scroll">
+			<scroll-view :scroll-top="scrollTop" scroll-y="true" class="scroll-y" @scrolltoupper="upper" @scrolltolower="lower"
 			 @scroll="scroll" :style="{height: scrollHeight}">
-				<view class="scroll-y-item" v-for="index in 100" :key="index">{{index}}</view>
+				<component-item v-for="(item,index) in candidateInfo" :key="index" :itemInfo="item"></component-item>
 			</scroll-view>
 		</view>
 	</view>
 </template>
 
 <script>
+	import componentItem from '../../components/item/item.vue';
 	export default {
 		data() {
 			return {
@@ -48,32 +48,69 @@
 				old: {
 					scrollTop: 0
 				},
-				scrollHeight: 0
+				scrollHeight: 0,
+				candidateInfo: [
+					{
+						images: [],
+						name: '丽娜',
+						gender: 'female',
+						age: 22,
+						income: '8000/月',
+						asset: ['car']
+					},
+					{
+						images: [],
+						name: '李珂',
+						gender: 'male',
+						age: 28,
+						income: '20000/月',
+						asset: ['car','house']
+					},
+					{
+						images: [],
+						name: '丽娜',
+						gender: 'female',
+						age: 22,
+						income: '8000/月',
+						asset: ['car']
+					},
+					{
+						images: [],
+						name: '李珂',
+						gender: 'male',
+						age: 28,
+						income: '20000/月',
+						asset: ['car','house']
+					}
+				]
 			}
+		},
+		components: {
+			componentItem
 		},
 		onLoad() {},
 		onShow() {
-			this.getDomInfoFun();
+			this.getSysteminfoFun();
 		},
 		methods: {
 			changeTab(index) {
 				this.currentIndex = index;
 			},
-			upper(e) {
+			upper: function(e) {
 				console.log(e)
 			},
-			lower(e) {
+			lower: function(e) {
 				console.log(e)
 			},
-			scroll(e) {
+			scroll: function(e) {
 				this.old.scrollTop = e.detail.scrollTop
 			},
 			// 获取系统信息
-			getDomInfoFun() {
-				let view = uni.createSelectorQuery().select("#srcoll-wrap");
-				view.boundingClientRect(data => {
-					console.log("高" + data.height);
-					this.scrollHeight = data.height + 'px';
+			getSysteminfoFun() {
+				const _this = this;
+				const domSelect = uni.createSelectorQuery().in(this).select(".index-scroll");
+				domSelect.boundingClientRect(data => {
+					_this.scrollHeight = data.height + 'px';
 				}).exec();
 			}
 		}

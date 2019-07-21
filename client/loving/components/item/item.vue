@@ -1,22 +1,44 @@
 <template>
-	<!--
-	* lotusNoData.isShow:设置显示无数据组件的显示隐藏
-	* lotusNoData.wrapStyle:设置最外部view的样式，垂直居中
-	* lotusNoData.imgStyle:设置图片大小，内外边距
-	* lotusNoData.imgUrl:设置图片链接
-	* lotusNoData.showTitleFlag:设置是否需要显示无数据提示语
-	* lotusNoData.titleStyle:设置无数据提示语的样式
-	* lotusNoData.title:设置无数据提示语的值
-	-->
-	<view class="component-item">
-		测试
+	<view class="component-item" :itemInfo="itemInfo">
+		<view class="item-info">
+			<view class="images"></view>
+			<view class="infomation">
+				<view class="infomation-item">
+					<view>
+						<text>{{itemInfo.name}}</text>
+						<image class="sex" :src="itemInfo.gender === 'male'?'../../static/icon-male.png':'../../static/icon-female.png'" mode=""></image>
+					</view>
+					<view>
+						<text class="age">{{itemInfo.age?itemInfo.age+'岁':'保密'}}</text>
+					</view>
+				</view>
+				<view class="infomation-item">
+					<view>
+						<text>{{itemInfo.income}}</text>
+					</view>
+					<view>
+						<text :class="item==='house'?'asset-car asset-house':'asset-car'" v-for="(item,index) in itemInfo.asset" :key="index">{{item==='car'?'车':'房'}}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="item-operation">
+			<view class="item">
+				<image src="../../static/items/items-shoucang-d.png" mode=""></image>
+				<text>收藏</text>
+			</view>
+			<view class="item">
+				<image src="../../static/items/items-xihuan-d.png" mode=""></image>
+				<text>相亲</text>
+			</view>
+		</view>
 	</view>
 </template>
 
 <script>
 	export default {
 		name: 'items',
-		props:["showItem"],
+		props:["itemInfo"],
 		data() {
 			return {
 				

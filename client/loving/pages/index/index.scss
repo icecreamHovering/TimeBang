@@ -16,9 +16,17 @@ $Index: index;
 	}
 	&-swiper{
 		height: 210upx;
-		background: rgba(0,0,0,.5);
+		background: #fff;
 		.swiper{ 
 			height: 100%;
+			&-item{
+				width: 100%;
+				height: 100%;
+				image{
+					width: 100%;
+					height: 100%;
+				}
+			}
 		}
 	}
 	&-tap{
@@ -61,23 +69,12 @@ $Index: index;
 		right: 0;
 		left: 0;
 		bottom: 0;
-		background: #fff;
 		.scroll-y{
 			&::-webkit-scrollbar{
 				width: 0;
 			}
 			-ms-overflow-style: none;
 			overflow: -moz-scrollbars-none;
-			&-item{
-				display: inline-block;
-				margin-top: 2%;
-				margin-right: 1%;
-				margin-left: 1%;
-				width: 47%;
-				height: 500upx;
-				border-radius: 10upx;
-				background: #666;
-			}
 		}
 	}
 }

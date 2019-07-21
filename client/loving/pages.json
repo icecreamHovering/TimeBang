@@ -1,6 +1,12 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/me/index",
+			"style": {
+				"navigationBarTitleText": "我"
+			}
+		},
+		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "发现·你"
@@ -15,18 +21,13 @@
 			"style": {
 				"navigationBarTitleText": "关注"
 			}
-		},{
-			"path": "pages/me/index",
-			"style": {
-				"navigationBarTitleText": "我"
-			}
 		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "找ta",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#f5f5f6"
 	},
 	"tabBar": {
 		"color": "#7A7E83",

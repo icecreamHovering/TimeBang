@@ -5,7 +5,84 @@ $ComponentItem: component-item;
 	margin-right: 1%;
 	margin-left: 1%;
 	width: 47%;
-	height: 500upx;
+	height: 650upx;
 	border-radius: 10upx;
-	background: #666;
+	overflow: hidden;
+	background: #fff;
+	.item-info{
+		height: 85%;
+		.images{
+			height: 80%;
+			background: #e9635a;
+		}
+		.infomation{
+			padding-right: 20upx;
+			padding-bottom: 4upx;
+			padding-left: 20upx;
+			height: 20%;
+			box-sizing: border-box;
+			&-item{
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				height: 50%;
+				font-size: 26upx;
+				view{
+					display: flex;
+					align-items: center;
+				}
+				.sex{
+					margin-left: 4upx;
+					width: 30upx;
+					height: 30upx;
+				}
+				.age{
+					color: #e9635a;
+				}
+				.asset-car{
+					margin-left: 4upx;
+					width: 36upx;
+					height: 36upx;
+					border-radius: 100%;
+					text-align: center;
+					line-height: 36upx;
+					color: #fff;
+					background: #e67a97;
+				}
+				.asset-house{
+					background: #7dc2a2;
+				}
+			}
+		}
+	}
+	.item-operation{
+		position: relative;
+		display: flex;
+		align-items: center;
+		height: 15%;
+		font-size: 30upx;
+		&:after{
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 20upx;
+			left: 20upx;
+			height: 1px;
+			background: #e6e6e6;
+		}
+		.item{
+			flex: 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			image{
+				margin-right: 4upx;
+				width: 50upx;
+				height: 50upx;
+			}
+			&:first-child{
+				border-right: 1px solid #e6e6e6;
+			}
+		}
+	}
 }
