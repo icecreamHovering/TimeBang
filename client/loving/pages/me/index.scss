@@ -1,3 +1,16 @@
+@mixin arrow($width, $height, $borderWidth, $borderColor, $angle) {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: $width;
+	height: $height;
+	border-top: $borderWidth solid $borderColor;
+	border-right: $borderWidth solid $borderColor;
+	transform: rotate($angle);
+}
 $Me: me;
 .#{$Me}{
 	font-size: 26upx;
@@ -33,17 +46,7 @@ $Me: me;
 			position: relative;
 			padding-right: 20upx;
 			&:after{
-				content: '';
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				margin: auto;
-				width: 16upx;
-				height: 16upx;
-				border-top: 1px solid #fff;
-				border-right: 1px solid #fff;
-				transform: rotate(45deg);
+				@include arrow(16upx, 16upx, 1px, #fff, 45deg);
 			}
 		}
 	}
@@ -81,17 +84,7 @@ $Me: me;
 				position: relative;
 				padding-right: 20upx;
 				&:after{
-					content: '';
-					position: absolute;
-					top: 0;
-					right: 0;
-					bottom: 0;
-					margin: auto;
-					width: 16upx;
-					height: 16upx;
-					border-top: 1px solid #999;
-					border-right: 1px solid #999;
-					transform: rotate(45deg);
+					@include arrow(16upx, 16upx, 1px, #999, 45deg);
 				}
 				.gray{
 					color: #999;
