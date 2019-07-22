@@ -24,11 +24,11 @@
 		</view>
 		<view class="item-operation">
 			<view class="item">
-				<image src="../../static/items/items-shoucang-d.png" mode=""></image>
+				<image src="../../static/items-shoucang-d.png" mode=""></image>
 				<text>收藏</text>
 			</view>
 			<view class="item">
-				<image src="../../static/items/items-xihuan-d.png" mode=""></image>
+				<image src="../../static/items-xihuan-d.png" mode=""></image>
 				<text>相亲</text>
 			</view>
 		</view>
@@ -41,7 +41,7 @@
 		props:["itemInfo"],
 		data() {
 			return {
-				
+
 			};
 		}
 	}
