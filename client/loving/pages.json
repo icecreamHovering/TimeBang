@@ -12,14 +12,9 @@
 				"navigationBarTitleText": "发现·你"
 			}
 		},{
-			"path": "pages/like/index",
-			"style": {
-				"navigationBarTitleText": "收藏"
-			}
-		},{
 			"path": "pages/focus/index",
 			"style": {
-				"navigationBarTitleText": "关注"
+				"navigationBarTitleText": "心动的感觉"
 			}
 		}
 	],
@@ -39,17 +34,11 @@
 				"iconPath": "static/tabbar/index-default.png",
 				"selectedIconPath": "static/tabbar/index-active.png",
 				"text": "发现·你"
-			},
-			{
-				"pagePath": "pages/like/index",
-				"iconPath": "static/tabbar/like-default.png",
-				"selectedIconPath": "static/tabbar/like-active.png",
-				"text": "收藏"
-			}, {
+			},{
 				"pagePath": "pages/focus/index",
 				"iconPath": "static/tabbar/focus-default.png",
 				"selectedIconPath": "static/tabbar/focus-active.png",
-				"text": "关注"
+				"text": "心动的感觉"
 			}, {
 				"pagePath": "pages/me/index",
 				"iconPath": "static/tabbar/personal-default.png",
