@@ -1,0 +1,63 @@
+$register: impower;
+.#{$register} {
+  &-title{
+    font-size:38rpx;
+    text-align: center;
+    padding-top:170rpx;
+  }
+  &-tips{
+    font-size:26rpx;
+    text-align: center;
+    padding-top:70rpx;
+    display: block;
+    color:#969696;
+  }
+  &-btn{
+    margin:80rpx 40rpx 0;
+    color:#fff;
+    font-size:34rpx;
+    background: #fc9f06;
+  }
+  &-get{
+    &-phone-mask{
+      position: fixed;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 13;
+    }
+    &-phone-wrap{
+      position: fixed;
+      left:50%;
+      top:50%;
+      transform: translate3d(-50%,-50%,0);
+      z-index: 14;
+      background: #fff;
+      padding:40rpx;
+      border-radius: 10rpx;
+      width:500rpx;
+    }
+    &-phone{
+      &-title{
+        font-size: 32rpx;
+        display: block;
+        text-align: center;
+        padding-bottom: 30rpx;
+      }
+      &-tip{
+        font-size: 28rpx;
+        color:#969696;
+      }
+      &-btn{
+        display: block;
+        margin-top:40rpx;
+        color:#fff;
+        font-size:34rpx;
+        background: #fc9f06;
+      }
+    }
+  }
+
+}
