@@ -14,7 +14,7 @@ const getIsAuthor = async () => {
 			// await userLoginByCode();
 			// userDataMsg = wx.getStorageSync('userDataMsg')&&JSON.parse(wx.getStorageSync('userDataMsg'));
 		}
-		
+
 		//旧用户授权过但没有获取的微信用户信息
 		return new Promise((resolve, reject) => {
 		    resolve({
@@ -72,7 +72,7 @@ const checkUserRegister = async (loadPageRoute, options) => {
     //获取授权信息
     const isAuthorMsg = await getIsAuthor();
     console.log(isAuthorMsg);
-	
+
     //缓存需要返回的路由
     if (loadPageRoute) {
         if (isAuthorMsg) {
@@ -87,7 +87,7 @@ const checkUserRegister = async (loadPageRoute, options) => {
             }
         }
     }
-    
+
 	//版本比对不一致删除所有缓存信息
 	/* if (wx.getStorageSync('lotusAppVersion')) {
 		if (config.lotusAppVersion !== wx.getStorageSync('lotusAppVersion')) {
@@ -118,14 +118,14 @@ const checkUserRegister = async (loadPageRoute, options) => {
 			};
 		}else{
 			//授权过执行用户登录
-			return await userLoginByCode();
+			// return await userLoginByCode();
 		}
 	} else {
 		//已注册
 		return new Promise((resolve, reject) => {
 			const result = JSON.parse(wx.getStorageSync('userDataMsg'));
 			result.Code = 1;
-			
+
 			resolve(result);
 		});
 	}

@@ -3,7 +3,7 @@ let config = {
 	appVersion: 'YWCMV1.0.3',
 	apiUrl:'https://loudata.xiaoyaozhan.com/api/',
 	curEnv:'production',//当前环境开发为evelopment，生成环境production
-}
+};
 
 const appUtils = {
 	//图片预览
@@ -111,7 +111,7 @@ const appUtils = {
 		return new Promise((resolve, reject) => {
 			uni.getSystemInfo({
 				success: function(res) {
-					/* 
+					/*
 					console.log(res.model);//手机型号
 					console.log(res.pixelRatio);//设备像素比
 					console.log(res.screenWidth); //屏幕宽度
@@ -186,7 +186,7 @@ const appUtils = {
 					});
 				});
 			}
-			
+
 		}else{
 			//开发环境
 			return new Promise((resolve,reject)=>{
@@ -217,7 +217,7 @@ const appUtils = {
 			});
 		});
 	}
-}
+};
 
 export {
 	appUtils

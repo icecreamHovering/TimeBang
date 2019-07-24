@@ -1,3 +1,4 @@
+<!--suppress ALL -->
 <template>
 	<view class="me">
 		<view class="me-info">
