@@ -1,0 +1,16 @@
+$lotus: lotus-no-data;
+.#{$lotus} {
+ &-pic{
+	 display: block;
+	 margin-left: auto;
+	 margin-right: auto;
+	 width:400rpx;
+	 height:400rpx;
+ }
+ &-title{
+	font-size: 32rpx;
+	text-align: center;
+	color:#969696;
+	padding-bottom: 30rpx;
+ }
+}

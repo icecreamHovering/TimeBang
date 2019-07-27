@@ -16,7 +16,12 @@
 			"style": {
 				"navigationBarTitleText": "心动的感觉"
 			}
-		}
+		},{
+            "path" : "pages/impower/impower",
+            "style" : {
+				"navigationBarTitleText": "授权"
+			}
+        }
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -31,18 +36,18 @@
 		"backgroundColor": "#F8F8F8",
 		"list": [{
 				"pagePath": "pages/index/index",
-				"iconPath": "static/tabbar/index-default.png",
-				"selectedIconPath": "static/tabbar/index-active.png",
+				"iconPath": "static/images/tabbar/index-default.png",
+				"selectedIconPath": "static/images/tabbar/index-active.png",
 				"text": "发现·你"
 			},{
 				"pagePath": "pages/focus/index",
-				"iconPath": "static/tabbar/focus-default.png",
-				"selectedIconPath": "static/tabbar/focus-active.png",
+				"iconPath": "static/images/tabbar/focus-default.png",
+				"selectedIconPath": "static/images/tabbar/focus-active.png",
 				"text": "心动的感觉"
 			}, {
 				"pagePath": "pages/me/index",
-				"iconPath": "static/tabbar/personal-default.png",
-				"selectedIconPath": "static/tabbar/personal-active.png",
+				"iconPath": "static/images/tabbar/personal-default.png",
+				"selectedIconPath": "static/images/tabbar/personal-active.png",
 				"text": "我"
 			}
 		]

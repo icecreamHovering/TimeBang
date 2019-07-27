@@ -6,7 +6,7 @@
 				<view class="infomation-item">
 					<view>
 						<text>{{itemInfo.name}}</text>
-						<image class="sex" :src="itemInfo.gender === 'male'?'../../static/icon-male.png':'../../static/icon-female.png'" mode=""></image>
+						<image class="sex" :src="itemInfo.gender === 'male'?'../../static/images/icon-male.png':'../../static/images/icon-female.png'" mode=""></image>
 					</view>
 					<view>
 						<text class="age">{{itemInfo.age?itemInfo.age+'岁':'保密'}}</text>
@@ -24,11 +24,11 @@
 		</view>
 		<view class="item-operation">
 			<view class="item">
-				<image src="../../static/items-shoucang-d.png" mode=""></image>
+				<image src="../../static/images/items-shoucang-d.png" mode=""></image>
 				<text>收藏</text>
 			</view>
 			<view class="item">
-				<image src="../../static/items-xihuan-d.png" mode=""></image>
+				<image src="../../static/images/items-xihuan-d.png" mode=""></image>
 				<text>相亲</text>
 			</view>
 		</view>

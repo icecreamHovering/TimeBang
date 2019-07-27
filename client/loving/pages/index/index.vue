@@ -5,7 +5,7 @@
 				<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
 					<swiper-item v-for="index in 3" :key="index">
 						<view class="swiper-item">
-							<image src="../../static/common-top-ad.png"></image>
+							<image src="../../static/images/common-top-ad.png"></image>
 						</view>
 					</swiper-item>
 				</swiper>
