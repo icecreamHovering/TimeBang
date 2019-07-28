@@ -1,6 +1,6 @@
 <template>
 	<view class="component-item" :itemInfo="itemInfo">
-		<view class="item-info">
+		<view class="item-info" @click="goTo">
 			<view class="images"></view>
 			<view class="infomation">
 				<view class="infomation-item">
@@ -43,6 +43,13 @@
 			return {
 
 			};
+		},
+        methods: {
+		    goTo() {
+                uni.navigateTo({
+                    url: '../details/index'
+                });
+			}
 		}
 	}
 </script>

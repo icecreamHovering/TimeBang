@@ -18,7 +18,7 @@
 		<view class="index-scroll">
 			<scroll-view :scroll-top="scrollTop" scroll-y="true" class="scroll-y" @scrolltoupper="upper" @scrolltolower="lower"
 			 @scroll="scroll" :style="{height: scrollHeight}">
-				<component-item v-for="(item,index) in candidateInfo" :key="index" :itemInfo="item"></component-item>
+				<component-item v-for="(item,index) in candidateInfo" :key="index" :itemInfo="item"/>
 			</scroll-view>
 		</view>
 	</view>
@@ -81,7 +81,30 @@
 						age: 28,
 						income: '20000/月',
 						asset: ['car','house']
-					}
+					},
+                    {
+                        images: [],
+                        name: '丽娜',
+                        gender: 'female',
+                        age: 22,
+                        income: '8000/月',
+                        asset: ['car']
+                    },
+                    {
+                        images: [],
+                        name: '李珂',
+                        gender: 'male',
+                        age: 28,
+                        income: '20000/月',
+                        asset: ['car','house']
+                    },{
+                        images: [],
+                        name: '丽娜',
+                        gender: 'female',
+                        age: 22,
+                        income: '8000/月',
+                        asset: ['car']
+                    }
 				]
 			}
 		},

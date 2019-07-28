@@ -1,12 +1,6 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/me/index",
-			"style": {
-				"navigationBarTitleText": "我"
-			}
-		},
-		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "发现·你"
@@ -21,11 +15,20 @@
             "style" : {
 				"navigationBarTitleText": "授权"
 			}
-        },
-		{
+        }, {
 		    "path" : "pages/addInfo/index",
 		    "style" : {
 				"navigationBarTitleText": "个人信息"
+			}
+		},{
+			"path" : "pages/details/index",
+			"style" : {
+				"navigationBarTitleText": "详情"
+			}
+		}, {
+			"path": "pages/me/index",
+			"style": {
+				"navigationBarTitleText": "VIP"
 			}
 		}
 	],
@@ -54,7 +57,7 @@
 				"pagePath": "pages/me/index",
 				"iconPath": "static/images/tabbar/personal-default.png",
 				"selectedIconPath": "static/images/tabbar/personal-active.png",
-				"text": "我"
+				"text": "VIP"
 			}
 		]
 	}
