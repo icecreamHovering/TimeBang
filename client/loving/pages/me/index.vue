@@ -9,7 +9,7 @@
 					<view>会员ID：9070107925</view>
 				</view>
 			</view>
-			<view class="me-info-right">
+			<view class="me-info-right" @tap="toAddInfo">
 				修改个人资料
 			</view>
 		</view>
@@ -28,17 +28,18 @@
 </template>
 
 <script>
-    import {checkUserRegister} from '../../static/utils/checkUserStatus'
+	import {
+		checkUserRegister
+	} from '../../static/utils/checkUserStatus'
 	export default {
 		data() {
 			return {
-				itemData: [
-					{
+				itemData: [{
 						iconUrl: '../../static/images/me-phone.png',
 						leftText: '手机认证',
 						rightText: '未认证',
 						color: 'gray'
-					},{
+					}, {
 						iconUrl: '../../static/images/me-renzheng.png',
 						leftText: '实名认证',
 						rightText: '未认证',
@@ -49,12 +50,12 @@
 						leftText: '我的相亲卡',
 						rightText: '点击生成相亲卡',
 						color: 'orange'
-					},{
+					}, {
 						iconUrl: '../../static/images/me-xianshishoujihao.png',
 						leftText: '是否显示手机号',
 						rightText: '不显示 点击显示',
 						color: 'gray'
-					},{
+					}, {
 						iconUrl: '../../static/images/me-pingtai.png',
 						leftText: '平台名称',
 						rightText: '小爱',
@@ -63,19 +64,23 @@
 				]
 			}
 		},
-        methods: {
+		methods: {
+			toAddInfo() {
+				uni.navigateTo({
+					url: '../addInfo/index'
+				})
+			},
+		},
+		onShow() {
+			checkUserRegister(this.__route__).then((res) => {
+				if (res && res.Code === 1) {
+					//获取首页数据
+				}
+			});
+		},
+		onLoad() {
 
-        },
-        onShow() {
-            checkUserRegister(this.__route__).then((res)=>{
-                if(res&&res.Code === 1){
-                    //获取首页数据
-                }
-            });
-        },
-        onLoad() {
-
-        }
+		}
 	}
 </script>
 

@@ -1,0 +1,58 @@
+
+$Index: index;
+$Red:red;
+.#{$Red} {
+	color: #f4645f;
+}
+.#{$Index}{
+	background: #f0f0f0;
+	padding: 20upx;
+	font-size: 30upx;
+	.top {
+		background: #fff;
+		min-height: 300upx;
+		border-radius: 4upx;
+		text-align: center;
+	}
+	.content {
+		margin: 40upx 0;
+		background: #fff;
+		padding: 40upx 0;
+		border-radius: 4upx;
+		.header {
+			text-align: center;
+			font-weight: bold;
+		}
+		.list {
+			width: 670upx;
+			padding:20upx 0;
+			margin: 0 auto;
+			border-bottom: 1upx solid #f0f0f0;
+			display: flex;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			.input {
+				width: 480upx;
+				.radio {
+					margin-right: 40upx;
+					font-size: 26upx;
+					width: 60upx;
+					height: 40upx;
+					line-height: 40upx;
+					text-align: center;
+					padding: 0 10upx;
+					border-radius: 4upx;
+					border: 1upx solid #f0f0f0
+				}
+			}
+		}
+	}
+	.btn {
+		background: #ee4a56;
+		height: 100upx;
+		color: #fff;
+		line-height: 100upx;
+		text-align: center;
+		border-radius: 4upx;
+	}
+}
