@@ -6,14 +6,18 @@ $ComponentItem: component-item;
 	margin-left: 1.5%;
 	width: 47%;
 	height: 650upx;
-	border-radius: 10upx;
+	border-radius: 16upx;
 	overflow: hidden;
 	background: #fff;
 	.item-info{
 		height: 85%;
 		.images{
 			height: 80%;
-			background: #e9635a;
+			&-item{
+				font-size: 0;
+				width: 100%;
+				height: 100%;
+			}
 		}
 		.infomation{
 			padding-right: 20upx;

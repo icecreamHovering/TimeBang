@@ -3,7 +3,7 @@
 		<view class="index-top">
 			<view class="index-swiper">
 				<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
-					<swiper-item v-for="index in 3" :key="index">
+					<swiper-item v-for="index in 2" :key="index">
 						<view class="swiper-item">
 							<image src="../../static/images/common-top-ad.png"></image>
 						</view>
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+    import {checkUserRegister} from '../../static/utils/checkUserStatus'
 	import componentItem from '../../components/item/item.vue';
 	export default {
 		data() {
@@ -51,7 +52,7 @@
 				scrollHeight: 0,
 				candidateInfo: [
 					{
-						images: [],
+						images: ['../../static/images/example-image1.png'],
 						name: '丽娜',
 						gender: 'female',
 						age: 22,
@@ -59,7 +60,7 @@
 						asset: ['car']
 					},
 					{
-						images: [],
+                        images: ['../../static/images/example-image2.png'],
 						name: '李珂',
 						gender: 'male',
 						age: 28,
@@ -67,23 +68,23 @@
 						asset: ['car','house']
 					},
 					{
-						images: [],
-						name: '丽娜',
+                        images: ['../../static/images/example-image1.png'],
+                        name: '丽娜',
 						gender: 'female',
 						age: 22,
 						income: '8000/月',
 						asset: ['car']
 					},
 					{
-						images: [],
-						name: '李珂',
+                        images: ['../../static/images/example-image3.png'],
+                        name: '李珂',
 						gender: 'male',
 						age: 28,
 						income: '20000/月',
 						asset: ['car','house']
 					},
                     {
-                        images: [],
+                        images: ['../../static/images/example-image1.png'],
                         name: '丽娜',
                         gender: 'female',
                         age: 22,
@@ -91,14 +92,14 @@
                         asset: ['car']
                     },
                     {
-                        images: [],
+                        images: ['../../static/images/example-image2.png'],
                         name: '李珂',
                         gender: 'male',
                         age: 28,
                         income: '20000/月',
                         asset: ['car','house']
                     },{
-                        images: [],
+                        images: ['../../static/images/example-image1.png'],
                         name: '丽娜',
                         gender: 'female',
                         age: 22,
@@ -111,7 +112,13 @@
 		components: {
 			componentItem
 		},
-		onLoad() {},
+		onLoad() {
+            checkUserRegister(this.__route__).then((res) => {
+                if (res && res.Code === 1) {
+                    //获取首页数据
+                }
+            });
+		},
 		onShow() {
 			this.getSysteminfoFun();
 		},

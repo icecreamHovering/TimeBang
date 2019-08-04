@@ -1,7 +1,9 @@
 <template>
 	<view class="component-item" :itemInfo="itemInfo">
 		<view class="item-info" @click="goTo">
-			<view class="images"></view>
+			<view class="images">
+				<image class="images-item" mode="aspectFill" :src="itemInfo.images[0]"></image>
+			</view>
 			<view class="infomation">
 				<view class="infomation-item">
 					<view>

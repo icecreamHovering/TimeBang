@@ -125,7 +125,6 @@ const checkUserRegister = async (loadPageRoute, options) => {
 		return new Promise((resolve, reject) => {
 			const result = JSON.parse(wx.getStorageSync('userDataMsg'));
 			result.Code = 1;
-
 			resolve(result);
 		});
 	}

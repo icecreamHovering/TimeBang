@@ -3,9 +3,9 @@
 	<view class="me">
 		<view class="me-info">
 			<view class="me-info-left">
-				<image class="avatar" src="../../static/images/logo.png" mode=""></image>
+				<image class="avatar" :src="infoData.avatarUrl || '../../static/images/example-image3.png'" mode="aspectFill"></image>
 				<view>
-					<view class="name">林榆雁</view>
+					<view class="name">{{infoData.nickName || '你好鸭'}}</view>
 					<view>会员ID：9070107925</view>
 				</view>
 			</view>
@@ -28,12 +28,11 @@
 </template>
 
 <script>
-	import {
-		checkUserRegister
-	} from '../../static/utils/checkUserStatus'
+	import {checkUserRegister} from '../../static/utils/checkUserStatus'
 	export default {
 		data() {
 			return {
+			    infoData: {},
 				itemData: [{
 						iconUrl: '../../static/images/me-phone.png',
 						leftText: '手机认证',
@@ -72,14 +71,13 @@
 			},
 		},
 		onShow() {
-			checkUserRegister(this.__route__).then((res) => {
-				if (res && res.Code === 1) {
-					//获取首页数据
-				}
-			});
+
 		},
 		onLoad() {
-
+            if(uni.getStorageSync('wxUserInfo')){
+                const wxUserInfo = JSON.parse(uni.getStorageSync('wxUserInfo'));
+                this.infoData = wxUserInfo.userInfo;
+            }
 		}
 	}
 </script>

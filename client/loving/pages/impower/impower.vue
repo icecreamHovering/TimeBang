@@ -23,7 +23,7 @@
 		data() {
 			return {
 				Code: '',
-				isFlag: wx.canIUse('button.open-type.getUserInfo'),
+				isFlag: uni.canIUse('button.open-type.getUserInfo'),
 				isNoBind:false,
 				wxDetailCode:''
 			}
@@ -32,7 +32,7 @@
 			//判断是否支持button组件
             isSupport(){
                 if(!this.isFlag){
-                    wx.showModal({
+                    uni.showModal({
                         title: '更新提示',
                         content: '微信版本过低，使用旧版本微信，将无法使用一些功能，请及时更新微信！',
                         success: function (res) {
@@ -47,7 +47,7 @@
                 if(e.detail.encryptedData){
                     const _this = this;
                     this.phoneCode =  await getCode();
-                    wx.checkSession({
+                    uni.checkSession({
                         success: function(){
                             //session_key 未过期，并且在本生命周期一直有效
                             console.log('未过期，并且在本生命周期一直有效');
@@ -66,7 +66,7 @@
 			//获取加密微信用户信息
 			userInfoHandler(e){
 				const _this = this;
-				wx.checkSession({
+                uni.checkSession({
 					success: function(){
 						//session_key 未过期，并且在本生命周期一直有效
 						if(e.detail.userInfo){
@@ -85,17 +85,23 @@
 				});
 			},
 			//获取用户信息
-			async getUserMsg(e){
-				let str='';
-				if(this.option){
-					for(let itemKey in this.option){
-						str += `${itemKey}=${this.option[itemKey]}&`
-					}
-				}
-				
+			getUserMsg(e){
 				//缓存微信用于解密用户信息
-				/* const wxUserInfo = JSON.stringify(e.detail);
-				wx.setStorageSync('wxUserInfo', wxUserInfo); */
+                const wxUserInfo = JSON.stringify(e.detail);
+                uni.setStorageSync('wxUserInfo', wxUserInfo);
+
+                if(uni.getStorageSync('loadPageRoute')){
+                    const loadPageRoute = uni.getStorageSync('loadPageRoute');
+                    setTimeout(()=>{
+                        //返回着陆页
+                        uni.reLaunch({
+                            url: `/${loadPageRoute}`,
+                            fail(err) {
+                                console.log(err);
+                            }
+                        });
+                    },100);
+                }
 				
 				//注册登录
 				/*this.userLogin(e.detail).then((response)=>{
@@ -104,19 +110,19 @@
 					if (result) {
 						this.wxDetailCode = result.WxDetailCode;
 						const userDataMsg = JSON.stringify(result);
-						wx.setStorageSync('userDataMsg', userDataMsg);
+						uni.setStorageSync('userDataMsg', userDataMsg);
 						//获取API配置数据
-						const tConfig = JSON.parse(wx.getStorageSync('configData'));
+						const tConfig = JSON.parse(uni.getStorageSync('configData'));
 						//提审打开开关visible:0关闭1打开
 						if(tConfig.visible*1){
 							//有绑定电话号码
 							if(result.MobilePhone){
 								//获取参数
-								if(wx.getStorageSync('loadPageRoute')){
-									const loadPageRoute = wx.getStorageSync('loadPageRoute');
+								if(uni.getStorageSync('loadPageRoute')){
+									const loadPageRoute = uni.getStorageSync('loadPageRoute');
 									setTimeout(()=>{
 										//返回着陆页
-										wx.redirectTo({
+										uni.reLaunch({
 											url:`/${loadPageRoute}?${str}`
 										});
 									},100);
@@ -130,18 +136,18 @@
                                 //console.log(tConfig.visible*1);
                                 //跳转无权限页面visible:0关闭1打开
                                 if(!tConfig.visible*1){
-                                    wx.redirectTo({
+                                    uni.reLaunch({
                                         url:'/pages/common/forbid'
                                     });
                                     return false;
                                 }
 
                                 //获取参数
-                                if(wx.getStorageSync('loadPageRoute')){
-                                    const loadPageRoute = wx.getStorageSync('loadPageRoute');
+                                if(uni.getStorageSync('loadPageRoute')){
+                                    const loadPageRoute = uni.getStorageSync('loadPageRoute');
                                     setTimeout(()=>{
                                         //返回着陆页
-                                        wx.redirectTo({
+                                        uni.reLaunch({
                                             url:`/${loadPageRoute}?${str}`
                                         });
                                     },100);
@@ -179,19 +185,19 @@
 				}).then((response) => {
 					const result = response.Data;
 					if (result) {
-						wx.setStorageSync('MobilePhone', result.MobilePhone);
+                        uni.setStorageSync('MobilePhone', result.MobilePhone);
 						//获取用户信息
-						wx.getStorage({
+                        uni.getStorage({
 							key: 'userDataMsg',
 							success(res) {
 								let oldData = JSON.parse(res.data);
 								oldData.MobilePhone = result.MobilePhone;
-								wx.setStorageSync('userDataMsg', JSON.stringify(oldData));
-								if(wx.getStorageSync('loadPageRoute')){
-									const loadPageRoute = wx.getStorageSync('loadPageRoute');
+                                uni.setStorageSync('userDataMsg', JSON.stringify(oldData));
+								if(uni.getStorageSync('loadPageRoute')){
+									const loadPageRoute = uni.getStorageSync('loadPageRoute');
 									setTimeout(()=>{
 										//返回着陆页
-										wx.redirectTo({
+                                        uni.reLaunch({
 											url:`/${loadPageRoute}`
 										});
 									},100);
